@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2024_12_31_184947) do
 
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "level", default: 1, null: false
+    t.integer "level", default: 1
     t.integer "category_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
