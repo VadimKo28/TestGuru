@@ -1,24 +1,8 @@
-# README
+Сущности приложения test-guru
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1.Тесты
+2.Вопросы
+3.Пользователи
+4.Администраторы
+5.Категории
+6.Ответы на вопросы
