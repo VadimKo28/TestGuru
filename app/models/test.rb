@@ -22,7 +22,7 @@ class Test < ApplicationRecord
 
   class << self
     def titles_by_category(category_name)
-      by_category.order(title: :desc).pluck(:title)
+      by_category(category_name).order(title: :desc).pluck(:title)
     end
   end
 end
