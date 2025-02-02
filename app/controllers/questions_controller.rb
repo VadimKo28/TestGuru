@@ -14,8 +14,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @test.questions.create(question_params)
-    redirect_to "/"
+    @test.questions.new(question_params)
+
+    if @test.save
+      redirect_to "/"
+    else
+      render :new
+    end
   end
 
 
