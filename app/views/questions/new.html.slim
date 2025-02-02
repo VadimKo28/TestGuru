@@ -1,0 +1,11 @@
+ form action="/tests/#{@test.id}/questions" method="post"
+  input name="authenticity_token" value=form_authenticity_token type="hidden"
+
+  p
+   label for="test-question-body" Title
+  p
+   input type="text" name="question[body]" id="test-question-body"
+
+  p
+   input type="submit" value="Create"
+
