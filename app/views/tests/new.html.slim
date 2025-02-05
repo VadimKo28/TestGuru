@@ -1,0 +1,17 @@
+h2 Создание теста
+
+= form_with model: @test do |form|
+
+  = render 'shared/errors', resource: @test
+  
+  p = form.label :title, 'Title'
+
+  p = form.text_field :title
+
+  p = form.label :level, 'Level'
+
+  p = form.number_field :level
+
+  p = form.submit
+
+  p = link_to 'Back', tests_path

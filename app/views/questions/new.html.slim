@@ -1,11 +1,15 @@
- form action="/tests/#{@test.id}/questions" method="post"
-  input name="authenticity_token" value=form_authenticity_token type="hidden"
+h2 Create #{view_test_title(@test)}New Question
 
-  p
-   label for="test-question-body" Title
-  p
-   input type="text" name="question[body]" id="test-question-body"
+= form_with model: [@test, @question] do |form|
 
-  p
-   input type="submit" value="Create"
+  = render 'shared/errors', resource: @question
+
+  p = form.label :body, 'Body'
+
+  p = form.text_field :body
+
+  p = form.submit
+
+  p = link_to 'Back', tests_path
+
 

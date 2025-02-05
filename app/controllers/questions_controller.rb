@@ -1,36 +1,41 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  before_action :find_test
-  before_action :find_question, only: %w[show destroy]
-
-  def index
-    @questions = @test.questions
-
-    render inline: "<p>Все вопросы теста '<%= @test.title %>': <%= @questions.to_a %>!</p>"
-  end
+  before_action :find_test, only: %w[new create show]
+  before_action :find_question, only: %w[show destroy edit update]
 
   def new
+    @question = @test.questions.new
   end
 
   def create
-    @test.questions.new(question_params)
+    @question = @test.questions.new(question_params)
 
-    if @test.save
-      redirect_to "/"
+
+    if @question.save
+      redirect_to question_path(id: @question.id, test_id: @test.id )
     else
       render :new
     end
   end
 
-
   def show
-    render inline: "<p>Вопрос - <%= @question.body %>! теста - '<%= @test.title %>'</p>"
+  end
+
+  def edit
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to question_path(id: @question.id, test_id: @question.test.id )
+    else
+      render :edit
+    end
   end
 
   def destroy
     @question.delete
-    redirect_to "/"
+    redirect_to test_questions_path(@question.test)
   end
 
   private
