@@ -12,8 +12,8 @@ html
   body
     = yield
   footer
-    p #{Time.now.year} г.
+    p #{current_year} г.
     p Автор проекта - Козельский Вадим
-    a href='https://github.com/VadimKo28/TestGuru' target='_blank' проект TestGuru
+    p = link_to 'проект TestGuru', github_url('VadimKo28', 'TestGuru'), target: '_blank'
     p TestGuru это платформа для создания и прохождения учебных тестов.
     a href='https://thinknetica.com/' target='_blank' Учебный проект в онлайн-школе Thinknetica
