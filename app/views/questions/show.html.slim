@@ -2,4 +2,4 @@ p Вопрос #{@question.body} теста #{@question.test.title}
 
 p = link_to 'Edit', edit_question_path(test_id: @test.id, id: @question.id)
 p = button_to 'Delete', question_path(@question.id), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить этот вопрос?' }
-p = link_to 'Back', tests_path(@test)
+p = link_to 'Back', test_path(@test)

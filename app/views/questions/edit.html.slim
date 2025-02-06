@@ -1,14 +1,4 @@
-h2 Edit #{view_test_title(@question.test)}New Question
+= render 'form'
 
-= form_with model: @question do |form|
-
-  = render 'shared/errors', resource: @question
-
-  p = form.label :body, 'Body'
-
-  p = form.text_field :body
-
-  p = form.submit
-
-  p = link_to 'Back', test_questions_path(@question.test)
+p = link_to 'Back', test_questions_path(@question.test)
 

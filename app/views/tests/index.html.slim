@@ -1,8 +1,5 @@
 h3 Тесты
 
-- @test.each do |test|
-  p
-    = link_to test.title, test_path(test)
-    = "Колличество вопросов - #{test.questions.count}"
+= render @tests
 
 = button_to 'Создать тест', new_test_path, method: :get

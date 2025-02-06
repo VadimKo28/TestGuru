@@ -1,16 +1,17 @@
 class TestsController < ApplicationController
+  before_action :find_author, only: %w[new create]
   before_action :find_test, only: %w[show]
 
   def index
-    @test = Test.all
+    @tests = Test.all
   end
 
   def new
-    @test = Test.new
+    @test = @author.author_tests.new
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = @author.author_tests.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -29,6 +30,10 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level)
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def find_author
+    @author = User.last
   end
 end

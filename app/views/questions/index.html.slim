@@ -1,6 +1,6 @@
 h2 Все вопросы теста #{@test.title}
 
-- @questions.each do |question|
-  p = link_to "#{question.body}",  question_path(id: question.id, test_id: @test.id )
+= render @questions
+
 
 p = button_to 'Create question', new_test_question_path(@test), method: :get
