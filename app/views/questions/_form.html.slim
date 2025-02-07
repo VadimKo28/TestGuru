@@ -1,7 +1,4 @@
-- if @question.new_record?
-  h2 Create #{view_test_title(@question.test)} New Question
-- else
-  h2 Edit #{view_test_title(@question.test)} Question
+h2 = view_test_title(@question)
 
 = form_with model: [@test, @question] do |form|
 

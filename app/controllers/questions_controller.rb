@@ -1,12 +1,9 @@
 class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  before_action :find_test, only: %w[index new create show]
+  before_action :find_test, only: %w[new create show]
   before_action :find_question, only: %w[show destroy edit update]
 
-  def index
-    @questions = @test.questions
-  end
   def new
     @question = @test.questions.new
   end
@@ -16,7 +13,7 @@ class QuestionsController < ApplicationController
 
 
     if @question.save
-      redirect_to question_path(id: @question.id, test_id: @test.id )
+      redirect_to @question
     else
       render :new
     end
