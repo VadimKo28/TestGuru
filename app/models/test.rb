@@ -1,11 +1,11 @@
 class Test < ApplicationRecord
   INFINITY_LEVEL = Float::INFINITY
 
-  belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: :user_id
-  has_many :tests_users
-  has_many :users, through: :tests_users
+  belongs_to :category, optional: true
+  belongs_to :author, class_name: 'User', foreign_key: :user_id, optional: true
   has_many :questions
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, presence: true
   validates :title, uniqueness: { scope: :level, message: "Тест с таким названием и уровнем уже существует" }
