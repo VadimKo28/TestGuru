@@ -1,0 +1,12 @@
+p The #{@test_passage.test.title} test was completed!
+
+- if @test_passage.success?
+  div style='color: green'
+    p Вы успешно прошли тест
+    p Ваш процент прохождения #{@test_passage.result}%
+- else
+  div style='color: red'
+    p Вы не прошли тест
+    p Ваш процент прохождения #{@test_passage.result}%
+    
+= link_to 'Back', tests_path
