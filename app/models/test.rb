@@ -2,7 +2,7 @@ class Test < ApplicationRecord
   INFINITY_LEVEL = Float::INFINITY
 
   belongs_to :category, optional: true
-  belongs_to :author, class_name: 'User', foreign_key: :user_id, optional: true
+  belongs_to :author, class_name: 'User', foreign_key: :user_id
   has_many :questions
   has_many :test_passages
   has_many :users, through: :test_passages
