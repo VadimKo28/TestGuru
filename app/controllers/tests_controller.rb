@@ -1,19 +1,17 @@
 class TestsController < ApplicationController
-  before_action :find_author, only: %w[new create]
+  before_action :authenticate!
   before_action :find_test, only: %w[show start]
-  before_action :find_user, only: :start
-
 
   def index
     @tests = Test.all
   end
 
   def new
-    @test = @author.author_tests.new
+    @test = current_user.author_tests.new
   end
 
   def create
-    @test = @author.author_tests.new(test_params)
+    @test = current_user.author_tests.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -26,15 +24,11 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
-
-  def find_user
-    @user = User.last
-  end
 
   def find_test
     @test = Test.find(params[:id])
@@ -42,9 +36,5 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id)
-  end
-
-  def find_author
-    @author = User.last
   end
 end
