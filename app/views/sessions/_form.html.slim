@@ -1,6 +1,7 @@
 = form_with url: sessions_path, local: true do |form|
-  - if flash[:alert]
-    = view_flash(:alert)
+  - if flash.keys.present?
+    - flash.keys.each do |key|
+      = view_flash(key)
 
   p = form.label :email
   p = form.text_field :email, id: :email

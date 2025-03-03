@@ -3,7 +3,7 @@ module ApplicationHelper
     Time.current.year
   end
 
-  def view_flash(type)
-    content_tag(:p, flash[type], class: "#{type.to_s}-flash")
+  def view_flash(key)
+    content_tag(:p, flash[key], class: "#{key}-flash")
   end
 end
