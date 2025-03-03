@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :set_path, only: :authenticate!
+  before_action :authenticate!
+
   helper_method :logged_in?,
                 :current_user
 
@@ -7,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   def authenticate!
     unless current_user
+      session[:target_path] = request.path
+
       redirect_to login_path
     end
   end
@@ -17,11 +20,5 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
-  end
-
-  private
-
-  def set_path
-    session[:beginning_path] = request.path
   end
 end

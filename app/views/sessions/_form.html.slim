@@ -1,6 +1,6 @@
 = form_with url: sessions_path, local: true do |form|
   - if flash[:alert]
-    = alert_flash
+    = view_flash(:alert)
 
   p = form.label :email
   p = form.text_field :email, id: :email
