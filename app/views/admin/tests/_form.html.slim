@@ -1,0 +1,24 @@
+- if @test.new_record?
+  h2 Создание теста
+- else
+  h2 Редактирование теста
+
+= form_with model: [:admin, @test] do |form|
+
+  = render 'shared/errors', resource: @test
+
+  p = form.label :title, 'Title'
+
+  p = form.text_field :title
+
+  p = form.label :level, 'Level'
+
+  p = form.number_field :level
+
+  p = form.label :category_id, 'Category Id'
+
+  p = form.collection_select :category_id, Category.all, :id, :title
+
+  p = form.submit
+
+  p = link_to 'Back', admin_tests_path

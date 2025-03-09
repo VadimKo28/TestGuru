@@ -1,5 +1,5 @@
 tr
-  td = link_to test.title, test_path(test)
+  td = link_to test.title, admin_test_path(test)
   td = test.level
   td = test.questions.count
   td = button_to 'Start', start_test_path(test.id)

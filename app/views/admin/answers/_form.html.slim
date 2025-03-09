@@ -1,0 +1,11 @@
+= form_with model: [:admin, @question, @answer] do |form|
+
+  = render 'shared/errors', resource: @answer
+
+  p = form.label :body, 'Body'
+  p = form.text_field :body
+
+  p = form.label :correct, "Correct?"
+  p = form.check_box :correct
+
+  p = form.submit

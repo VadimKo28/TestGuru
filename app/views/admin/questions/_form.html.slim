@@ -1,0 +1,11 @@
+h2 = view_test_title(@question)
+
+= form_with model: [:admin, @test, @question] do |form|
+
+  = render 'shared/errors', resource: @question
+
+  p = form.label :body, 'Body'
+
+  p = form.text_field :body
+
+  p = form.submit
