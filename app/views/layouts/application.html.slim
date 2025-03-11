@@ -11,12 +11,15 @@ html
 
   body
     div class='nav user'
-      p = link_to 'Test Guru', root_path
-      p = link_to 'Sign_in', sign_up_path
-      p = link_to 'Log_in', login_path
-      - if logged_in?
+      p = link_to 'Test Guru', tests_path
+      p = link_to 'Sign_in', new_user_registration_path
+      p = link_to 'Log_in', new_user_session_path
+      - if user_signed_in?
         p Welcome #{current_user.email} Guru
-        p = button_to 'Sign Out', sign_out_path, method: :delete
+        p = button_to 'Sign Out', destroy_user_session_path, method: :delete
+
+    = render 'shared/flash'
+
     = yield
   footer
     p #{current_year} г.

@@ -1,0 +1,8 @@
+p Ответ к вопросу #{@answer.question.body}
+p - #{@answer.body}
+p - Корректный? - #{@answer.correct}
+p = link_to 'Edit', edit_admin_answer_path(id: @answer.id)
+p = button_to 'Delete', admin_answer_path(@answer.id), method: :delete, data: { confirm: 'Вы уверены, что хотите удалить этот вопрос?' }
+
+p = link_to 'Back', admin_question_path(id: @answer.question, test_id: @answer.question.test.id)
+
