@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     flash[:notice] = "Привет, #{resource.first_name}!"
 
     if resource.admin?
-      '/admin/tests'
+      admin_tests_path
     else
       super
     end
