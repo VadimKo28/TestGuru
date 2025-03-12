@@ -1,0 +1,64 @@
+ru:
+  helpers:
+    select:
+      prompt: Сделайте выбор
+    submit:
+      test:
+        create: Создать тест
+        update: Обновить тест
+      admin:
+        test:
+          create: Создать тест
+          update: Обновить тест
+    label:
+      test:
+        title: Название
+        level: Уровень
+        category_id: Категория
+
+  shared:
+    errors:
+      header:
+        few: Обнаружено %{count} ошибки
+        many: Обнаружено %{count} ошибок
+        one: "Обнаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: Доступные тесты
+      title: Название
+      level: Уровень
+      questions: Вопросы
+      button:
+        start: Начать
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно был пройден"
+
+  admin:
+    tests:
+      form:
+        header:
+          new: Создать тест
+          edit: Редактировать тест
+      create:
+        success: Тест был создан
+      index:
+        header: Доступные тесты
+        title: Название
+        level: Уровень
+        questions: Вопросы
+        link:
+          create: Создать тест
+  devise:
+    failure:
+      unauthenticated: 'Вы не аутентифицированы.'
+    registrations:
+      new:
+        sign_up: 'Зарегистрироваться'
+    sessions:
+      new:
+        sign_in: 'Войти'
+

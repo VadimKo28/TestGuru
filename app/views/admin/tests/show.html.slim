@@ -1,4 +1,4 @@
-h3 Тест #{@test.title}
+h3 #{t('activerecord.models.test')} #{@test.title}
 
 p = render partial: 'admin/questions/question', collection: @test.questions
 
