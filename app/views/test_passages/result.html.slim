@@ -1,4 +1,4 @@
-p The #{@test_passage.test.title} test was completed!
+p The #{t('.header', title: @test_passage.test.title)}
 
 - if @test_passage.success?
   div style='color: green'
@@ -8,5 +8,5 @@ p The #{@test_passage.test.title} test was completed!
   div style='color: red'
     p Вы не прошли тест
     p Ваш процент прохождения #{@test_passage.result}%
-    
+
 = link_to 'Back', tests_path
