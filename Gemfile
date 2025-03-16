@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 7.0.0'
+gem 'bootstrap', '~> 4.6.2'
+
 
 group :development, :test do
   gem 'slim-rails'
