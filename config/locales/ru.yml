@@ -39,6 +39,8 @@ ru:
   gists:
     success: "Gist успешно сохранён. <a href=%{gist_link} target='_blank'>Перейти</a>"
     failure: 'Во время сохранения Gist произошла ошибка'
+    record_invalid: "Не удалось сохранить gist в базу данных. %{error}"
+
 
   admin:
     tests:

@@ -27,7 +27,7 @@ class GistQuestionService
 
   def create_gist_to_db(gist)
     Gist.create!(
-      gist_url: gist[:html_url],
+      url: gist[:html_url],
       question_id: @question.id,
       user_id: @user.id
     )

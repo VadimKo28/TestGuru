@@ -35,9 +35,8 @@ en:
       header: "Test %{title} was been completed"
   gists:
     success: "Gist was successfully created! <a href=%{gist_link} target='_blank'>Link</a>"
-    alert: 'An error occured while saving gist'
-
-
+    failure: 'An error occured while saving gist'
+    record_invalid: "Failed to save gist to database. %{error}"
 
   admin:
     tests:
