@@ -8,7 +8,9 @@ class GistQuestionService
 
   def call
     gist = @client.create_gist(gist_params)
-    create_gist_to_db(gist)
+
+    create_gist_to_db(gist) if @client.success?
+
     gist
   end
 
@@ -24,10 +26,11 @@ class GistQuestionService
   end
 
   def create_gist_to_db(gist)
-    Gist.create(
+    Gist.create!(
       gist_url: gist[:html_url],
       question_id: @question.id,
-      user_id: @user.id)
+      user_id: @user.id
+    )
   end
 
   def gist_content
