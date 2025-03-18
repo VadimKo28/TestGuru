@@ -36,9 +36,9 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно был пройден"
-    gist:
-      success: "Gist успешно сохранён. <a href=%{gist_link} target='_blank'>Перейти</a>"
-      failure: 'Во время сохранения Gist произошла ошибка'
+  gists:
+    success: "Gist успешно сохранён. <a href=%{gist_link} target='_blank'>Перейти</a>"
+    failure: 'Во время сохранения Gist произошла ошибка'
 
   admin:
     tests:
