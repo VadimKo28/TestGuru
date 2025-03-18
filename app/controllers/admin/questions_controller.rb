@@ -13,7 +13,7 @@ class Admin::QuestionsController < Admin::BaseController
 
 
     if @question.save
-      redirect_to @question
+      redirect_to [:admin, @question]
     else
       render :new
     end
