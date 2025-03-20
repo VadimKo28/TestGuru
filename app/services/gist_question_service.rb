@@ -1,23 +1,12 @@
 class GistQuestionService
-  attr_reader :client
-
-  def initialize(user:, question:, client: nil)
+  def initialize(question:, client:)
     @question = question
-    @user = user
     @test = question.test
-    @client = client || GitHubClient.new
+    @client = client
   end
 
   def call
-    gist = client.create_gist(gist_params)
-
-    create_gist_to_db(gist) if client.success?
-
-    gist
-  end
-
-  def success?
-    client.success?
+    @client.create_gist(gist_params)
   end
 
   private
@@ -29,14 +18,6 @@ class GistQuestionService
         'test-guru-question.txt' => { content: gist_content }
       }
     }
-  end
-
-  def create_gist_to_db(gist)
-    Gist.create!(
-      url: gist[:html_url],
-      question_id: @question.id,
-      user_id: @user.id
-    )
   end
 
   def gist_content
