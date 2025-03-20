@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_03_18_215152) do
+ActiveRecord::Schema.define(version: 2025_03_18_095437) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false
