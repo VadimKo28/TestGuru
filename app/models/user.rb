@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :author_tests, class_name: 'Test'
   has_many :test_passages
   has_many :tests, through: :test_passages
+  has_many :gists
 
   validates :email, format: { with: EMAIL_REGEXP, message: "не является корректным адресом электронной почты" }
   validates :email, uniqueness: true

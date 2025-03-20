@@ -33,7 +33,10 @@ en:
   test_passages:
     result:
       header: "Test %{title} was been completed"
-
+  gists:
+    success: "Gist was successfully created! <a href=%{gist_link} target='_blank'>Link</a>"
+    failure: 'An error occured while saving gist'
+    record_invalid: "Failed to save gist to database. %{error}"
 
   admin:
     tests:
@@ -50,6 +53,9 @@ en:
         questions: Questions
         link:
           create: Create test
+  github_gist:
+    params:
+      description: "A question about %{test_title} from TestGuru"
   devise:
     failure:
       unauthenticated: You are not authorized

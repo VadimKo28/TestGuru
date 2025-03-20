@@ -15,7 +15,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gists, only: :create
+
   namespace :admin do
+    resources :gists, only: :index
     resources :tests do
 
       resources :questions, shallow: true do
