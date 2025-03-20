@@ -3,16 +3,18 @@ class GistsController < Admin::BaseController
   before_action :set_test_passage
 
   def create
-    begin
-      gist = GistQuestionService.new(
-        user: current_user,
-        question: @test_passage.current_question
-      ).call
+    servise_object = GistQuestionService.new(
+      user: current_user,
+      question: @test_passage.current_question
+    )
 
-      flash_options = gist ? { notice: t('.success', gist_link: gist[:html_url]) } : { alert: t('.failure')}
-    rescue ActiveRecord::RecordInvalid => e
-      flash_options = { alert: t('.record_invalid', error: e.message) }
-    end
+    gist = servise_object.call
+
+    flash_options = if servise_object.client.success?
+                      { notice: t('.success', gist_link: gist[:html_url]) }
+                    else
+                      { alert: t('.failure')}
+                    end
 
     redirect_to @test_passage, flash_options
   end

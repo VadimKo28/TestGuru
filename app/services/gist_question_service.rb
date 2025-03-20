@@ -1,4 +1,6 @@
 class GistQuestionService
+  attr_reader :client
+
   def initialize(user:, question:, client: nil)
     @question = question
     @user = user
@@ -7,11 +9,15 @@ class GistQuestionService
   end
 
   def call
-    gist = @client.create_gist(gist_params)
+    gist = client.create_gist(gist_params)
 
-    create_gist_to_db(gist) if @client.success?
+    create_gist_to_db(gist) if client.success?
 
     gist
+  end
+
+  def success?
+    client.success?
   end
 
   private
