@@ -37,6 +37,12 @@
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </p>
 
+        <div id="error_message" class="error">Пароли не совпадают!❌</div>
+        <br>
+
+        <div id="success_message" class="success">Пароли совпадают✅</div>
+        <br>
+
         <p>
           <%= f.submit "#{t('devise.registrations.new.sign_up')}" %>
         </p>

@@ -24,6 +24,7 @@ gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'bootstrap', '~> 4.6.2'
 gem 'slim-rails'
+gem 'octicons_helper'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
