@@ -53,6 +53,8 @@ en:
         questions: Questions
         link:
           create: Create test
+      form_inline:
+        submit: 'OK'
   github_gist:
     params:
       description: "A question about %{test_title} from TestGuru"

@@ -2,7 +2,9 @@ h3 #{t('.header')}
 
 = link_to "#{t('admin.tests.index.link.create')}", new_admin_test_path
 
-table
+= render 'shared/errors', resource: @test
+
+table class='table'
   tr
     th #{t('.title')}
     th #{t('.level')}

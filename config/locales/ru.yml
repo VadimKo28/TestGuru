@@ -57,6 +57,8 @@ ru:
         questions: Вопросы
         link:
           create: Создать тест
+      form_inline:
+        submit: 'OK'
   github_gist:
     params:
       description: "Вопрос по %{test_title} от TestGuru"

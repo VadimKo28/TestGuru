@@ -1,15 +1,25 @@
-h3 Passing the #{@test_passage.test.title} Test
+div class='container'
+  div class='row'
+    div class='col col-md-7'
+      = content_tag :h3, "Passing the #{@test_passage.test.title} Test",
+        class: 'test_passage',
+        data: { question_count: @test_passage.test.questions.count,
+                number_current_question: position_current_question(@test_passage) }
 
-b
-  = @test_passage.current_question.body
+      b #{@test_passage.current_question.body}
 
-= form_with url: test_passage_path(@test_passage), method: :put do |form|
-  = form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
-    p
-      = b.check_box id: "answer_ids_#{b.object.id}"
-      = b.label
-  p
-  p #{position_current_question(@test_passage)}-й вопрос из #{@test_passage.test.questions.count}
-  p = form.submit 'Next question'
-p = button_to 'Create Gist', gists_path(test_passage_id: @test_passage)
+      = form_with url: test_passage_path(@test_passage), method: :put do |form|
+        = form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b|
+          p
+            = b.check_box id: "answer_ids_#{b.object.id}"
+            = b.label
+        p
+        p #{position_current_question(@test_passage)}-й вопрос из #{@test_passage.test.questions.count}
+        p class='progress-btn'
+          = form.submit 'Next question'
+      p = button_to 'Create Gist', gists_path(test_passage_id: @test_passage)
+    div class='col col-md-5'
+      h3 Прохождение теста
+      div class='progress-bar'
+        div class='progress-bar-inner'
 
