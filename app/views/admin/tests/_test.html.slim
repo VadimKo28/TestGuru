@@ -1,4 +1,8 @@
 tr
-  td = link_to test.title, admin_test_path(test)
+  td
+    = content_tag :span, test.title, class: 'test-title', data: { test_id: test.id }
+    = render 'form_inline', test: test == @test ? @test : test
   td = test.level
   td = test.questions.count
+  td = link_to 'Show', admin_test_path(test)
+  td = link_to 'Edit', edit_admin_test_path(test), class: 'form-inline-link', data: { test_id: test.id }

@@ -17,8 +17,8 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-gem 'faraday'
 gem 'octokit'
+gem 'faraday-retry'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise', '~> 4.0'
 gem 'rails-i18n', '~> 7.0.0'
