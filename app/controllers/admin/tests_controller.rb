@@ -1,6 +1,6 @@
 class Admin::TestsController < Admin::BaseController
   before_action :set_tests, only: %w[index update_inline]
-  before_action :find_test, only: %w[show start update_inline edit update]
+  before_action :find_test, only: %w[show start update_inline edit update destroy]
 
   def index
   end
@@ -39,6 +39,12 @@ class Admin::TestsController < Admin::BaseController
     else
       render :index
     end
+  end
+
+  def destroy
+    Question.where(test_id: @test.id)
+    @test.delete
+    redirect_to admin_tests_path
   end
 
   private
