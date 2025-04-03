@@ -42,7 +42,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def destroy
-    Question.where(test_id: @test.id)
     @test.delete
     redirect_to admin_tests_path
   end
