@@ -2,15 +2,15 @@ categories = Category.create!([{ title: 'Backend' }, { title: 'Frontend' }, { ti
 
 
 users = User.create!([
-    {name: 'Иванов Сергей Петрович', email: 'ivanov@46.ru'},
-    {name: 'Петров Сергей Петрович', email: 'petrov@mail78.com'},
-    {name: 'Сидоров Владимир Владимирович', email: 'sid22@gmail.com'}
+    {name: 'Иванов Сергей Петрович', email: 'ivanov@46.ru', password: 'ivanov@46.ru'},
+    {name: 'Петров Сергей Петрович', email: 'petrov@mail78.com', password: 'petrov@mail78.com'},
+    {name: 'Сидоров Владимир Владимирович', email: 'sid22@gmail.com', password: 'sid22@gmail.com'}
   ])
 
 
 tests = Test.create!([
-  {title: 'Запросы ActiveRecord', category: categories[0], user: users[0]},
-  {title: 'Запросы SQL', category: categories[0], user: users[1], }
+  {title: 'Запросы ActiveRecord', category: categories[0], user_id: users[0].id},
+  {title: 'Запросы SQL', category: categories[0], user_id: users[1].id, }
 ])
 
 questions = Question.create!([
@@ -20,7 +20,7 @@ questions = Question.create!([
 
 
 Answer.create!([
-  {question: questions[0]},
-  {question: questions[1]},
+  {body: 'Test1', question: questions[0]},
+  {body: 'Test2', question: questions[1]},
 ])
 

@@ -6,3 +6,4 @@ tr
   td = test.questions.count
   td = link_to 'Show', admin_test_path(test)
   td = link_to 'Edit', edit_admin_test_path(test), class: 'form-inline-link', data: { test_id: test.id }
+  td = button_to 'Delete', admin_test_path(test), method: :delete

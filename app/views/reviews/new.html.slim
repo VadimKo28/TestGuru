@@ -1,0 +1,8 @@
+h3 Здесь можно оставить отзыв
+
+= form_with url: '/reviews' do |form|
+  p =form.label 'Ваш email'
+  p =form.email_field :email, required: true
+  p =form.label 'Отзыв'
+  p =form.text_field :body, required: true
+  p =form.submit

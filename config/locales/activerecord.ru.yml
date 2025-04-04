@@ -6,6 +6,7 @@ ru:
       test:
         title: Название
         level: Уровень
+        displayed: Отображать
     errors:
       messages:
         blank: Не может быть пустым
