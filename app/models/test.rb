@@ -19,6 +19,7 @@ class Test < ApplicationRecord
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 4..INFINITY_LEVEL) }
+  scope :displayed, -> { where(displayed: true) }
 
   class << self
     def titles_by_category(category_name)

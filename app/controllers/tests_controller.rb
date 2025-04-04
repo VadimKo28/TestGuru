@@ -3,8 +3,7 @@ class TestsController < ApplicationController
   before_action :find_test, only: :start
 
   def index
-    # Показываю пользователю только те тесты, у которых есть вопросы
-    @tests = Test.includes(:questions).where.not(questions: { id: nil }).distinct
+    @tests = Test.displayed
   end
 
 
