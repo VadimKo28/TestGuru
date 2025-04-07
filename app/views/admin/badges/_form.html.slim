@@ -1,0 +1,13 @@
+= form_with model: [:admin ,@badge] do |f|
+  p = f.label 'Title'
+  p = f.text_field :title
+  p = f.label 'Image url'
+  p = f.text_field :image_url
+  p = f.label 'Rules'
+  p = f.select :rule, [["За успешное прохождение всех тестов из категории", 'all_category_tests'],
+                       ["За успешное прохождение теста с первой попытки", 'first_try_test'],
+                       ["За успешное прохождение всех тестов уровня", 'one_level_tests']]
+  p = f.label 'Rule attributes'
+  p = f.select :rule_attribute, {"Категории тестов" => ["Backend", "Frontend", "Database"],
+                                 "Уровни тестов" => ["1", "2", "3", "4", "5"]}, { include_blank: true }
+  p = f.submit

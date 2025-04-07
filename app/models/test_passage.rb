@@ -6,13 +6,12 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_current_question, on: :create
-  before_validation :before_validation_set_next_question, on: :update
 
+  scope :successfully_passed, -> { where(success: true) }
+  
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
-
+    self.correct_questions += 1  if correct_answer?(answer_ids)
+    set_next_question
     save!
   end
 
@@ -22,18 +21,22 @@ class TestPassage < ApplicationRecord
 
   def result
     correct_questions = self.correct_questions.to_f
-
     result = (correct_questions / test.questions.size) * 100
-
     result.round(2)
   end
 
-  def success?
-    result > PASSING_THRESHOLDS
+  def update_success!
+    if result > PASSING_THRESHOLDS
+      self.update!(success: true)
+    end
+  end
+
+  def check_passing
   end
 
   private
-  def before_validation_set_next_question
+
+  def set_next_question
     self.current_question = next_question
   end
 
