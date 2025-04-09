@@ -15,7 +15,9 @@ class CheckBadges
   end
 
   def first_try_test?(_attribute)
-    @user.test_passages.where(test_id: @test.id).successfully_passed.count == 1
+    test_passages = @user.test_passages.where(test_id: @test.id)
+
+    test_passages.count == 1 && test_passages.any? {|test_passage| test_passage}
   end
 
   def all_category_tests?(attribute)
@@ -33,6 +35,5 @@ class CheckBadges
 
     (tests_by_level.ids - success_passed_tests_by_level.pluck(:test_id).uniq).empty?
   end
-
 end
 
