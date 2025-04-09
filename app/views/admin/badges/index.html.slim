@@ -1,0 +1,16 @@
+
+div class='container'
+  h3 Badges
+
+  p = link_to 'New_Badges', new_admin_badge_path
+
+  div class='col col-md-7'
+    table class='table'
+      thead
+        tr
+          th Название
+          th Награда
+
+      = render @badges
+
+

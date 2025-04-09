@@ -16,6 +16,10 @@ class Test < ApplicationRecord
     .where(category: { title: category_name })
   end
 
+  scope :by_level, ->(level) do
+    where(level: level)
+  end
+
   scope :easy_level, -> { where(level: 0..1) }
   scope :middle_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 4..INFINITY_LEVEL) }

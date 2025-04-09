@@ -1,0 +1,6 @@
+h3 Награда #{@badge.title}
+
+p = @badge.rule
+p = @badge.rule_attribute
+
+= link_to 'Редактирвать', edit_admin_badge_path(@badge.id)
