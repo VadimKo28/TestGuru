@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_current_question, on: :create
 
   scope :successfully_passed, -> { where(success: true) }
-  
+
   def accept!(answer_ids)
     self.correct_questions += 1  if correct_answer?(answer_ids)
     set_next_question
@@ -17,6 +17,16 @@ class TestPassage < ApplicationRecord
 
   def completed?
     self.current_question.nil?
+  end
+
+  def time_to_pass
+    test.timer * 60
+  end
+
+  def time_has_expired?
+    last_minutes = (Time.current - self.created_at) / 60
+
+    last_minutes >= time_to_pass if test.timer
   end
 
   def result

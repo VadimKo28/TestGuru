@@ -17,7 +17,6 @@ function updateTimer(object) {
     seconds -= 1
 
     if (seconds == 0) {
-      alert('Время вышло, попробуйте ещё раз')
       window.location.href = rootUrl
     }
   }, 1000)
