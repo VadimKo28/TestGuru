@@ -22,4 +22,8 @@ div class='container'
       h3 Прохождение теста
       div class='progress-bar'
         div class='progress-bar-inner'
+      h4 Время
+      = content_tag :h4, 00,
+        class: 'timer',
+        data: { test_timer: @test_passage.test.timer, root_url: root_url }
 

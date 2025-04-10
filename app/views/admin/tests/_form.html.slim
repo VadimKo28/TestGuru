@@ -15,12 +15,16 @@
 
   p = form.number_field :level
 
+  p = form.label :timer
+
+  p = form.number_field :timer
+
   p = form.label :category_id
 
   p = form.collection_select :category_id, Category.all, :id, :title, prompt: true
 
   p = form.label :displayed
-  
+
   p = form.check_box :displayed
 
   p = form.submit
